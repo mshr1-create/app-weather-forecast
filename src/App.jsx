@@ -2,19 +2,36 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
+  const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY
+  const [city, setCity] = useState('')
+  const [error, setError] = useState('')
+  const [weatherData, setWeatherData] = useState(null)
 
-  const apiKey = import.meta.env.VITE_OPEN_WEATHER_API_KEY;
-  const [city, setCity] = useState('');
-  const [error, setError] = useState('');
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     if (city.trim() === '') {
-      setError('都市名を入力してください');
-    return;
+      setError('都市名を入力してください')
+      return
     }
-    console.log('検索する都市:', city);
-    // API呼び出し処理をここに追加する予定
-  };
+    setError('')
+    // OpenWeatherMap API を利用して天気情報を取得
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('天気情報の取得に失敗しました')
+        }
+        return response.json()
+      })
+      .then((data) => {
+        console.log('取得した天気情報:', data)
+        setWeatherData(data)
+      })
+      .catch((err) => {
+        setError(err.message)
+        setWeatherData(null)
+      })
+  }
+
   return (
     <>
       <header>
@@ -31,6 +48,18 @@ function App() {
           <button type="submit">検索</button>
         </form>
         {error && <p className="error">{error}</p>}
+        {weatherData && (
+          <div className="weather-info">
+            <p>温度: {weatherData.main.temp}°C</p>
+            <p>湿度: {weatherData.main.humidity}%</p>
+            <p>風速: {weatherData.wind.speed} m/s</p>
+            <p>天気: {weatherData.weather[0].description}</p>
+            <img
+              src={`http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`}
+              alt="weather icon"
+            />
+          </div>
+        )}
       </main>
     </>
   )
