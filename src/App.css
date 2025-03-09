@@ -1,0 +1,72 @@
+/* body 全体を Flexbox で中央配置 */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ヘッダー部分の中央揃え */
+header {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* h1 タグは余白を調整 */
+h1 {
+  margin: 0;
+}
+
+/* メインコンテンツの中央配置 */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* 入力フォームを中央揃えにする */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* テキスト入力フィールドのスタイル */
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 8px;
+  flex: 1;
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 8px 12px;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2779bd;
+}
+
+/* エラーメッセージの中央配置 */
+.error {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+  
