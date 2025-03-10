@@ -6,6 +6,7 @@ function App() {
   const [city, setCity] = useState('')
   const [error, setError] = useState('')
   const [weatherData, setWeatherData] = useState(null)
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -14,6 +15,7 @@ function App() {
       return
     }
     setError('')
+    setLoading(true)
     // OpenWeatherMap API を利用して天気情報を取得
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=ja`)
       .then((response) => {
@@ -25,10 +27,12 @@ function App() {
       .then((data) => {
         console.log('取得した天気情報:', data)
         setWeatherData(data)
+        setLoading(false)
       })
       .catch((err) => {
         setError(err.message)
         setWeatherData(null)
+        setLoading(false)
       })
   }
 
@@ -48,6 +52,7 @@ function App() {
           <button type="submit">検索</button>
         </form>
         {error && <p className="error">{error}</p>}
+        {loading && <p className="loading">読み込み中...</p>}
         {weatherData && (
           <div className="weather-info">
             <p>温度: {weatherData.main.temp}°C</p>
