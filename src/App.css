@@ -1,42 +1,171 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* body 全体を Flexbox で中央配置 */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa; /* 背景色を追加 */
+  font-family: Arial, sans-serif; /* フォントの統一 */
+}
+
+/* ヘッダー部分の中央揃え */
+header {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+/* h1 タグは余白を調整 */
+h1 {
+  margin: 0;
+}
+
+/* メインコンテンツの中央配置 */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+/* 入力フォームを中央揃えにする */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* テキスト入力フィールドのスタイル */
+input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-right: 8px;
+  flex: 1;
+}
+
+/* ボタンのスタイル */
+button {
+  padding: 8px 12px;
+  background-color: #3490dc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2779bd;
+}
+
+/* エラーメッセージの中央配置 */
+.error {
+  color: red;
+  margin-top: 10px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* 天気情報の表示をモダンなカードスタイルに調整 */
+.weather-info {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* 天気情報の各項目に下線と余白の調整 */
+.weather-info p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 最後の項目の下線を削除 */
+.weather-info p:last-of-type {
+  border-bottom: none;
+}
+
+/* 天気アイコンのスタイル */
+.weather-info img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+/* ローディング表示 */
+.loading {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #3490dc;
+  text-align: center;
+}
+
+/* --------------------------------------------------- */
+/* レスポンシブデザインのためのメディアクエリ */
+/* --------------------------------------------------- */
+
+/* タブレット向け (最大幅 768px) */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+  main {
+    padding: 15px;
+  }
+  input[type="text"] {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+  button {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+  .weather-info {
+    padding: 15px;
+  }
+  .weather-info p {
+    font-size: 1rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* スマートフォン向け (最大幅 480px) */
+@media screen and (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+  main {
+    padding: 10px;
+  }
+  h1 {
+    font-size: 1.5rem;
+  }
+  input[type="text"] {
+    padding: 5px;
+    font-size: 0.8rem;
+  }
+  button {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+  .weather-info {
+    padding: 10px;
+  }
+  .weather-info p {
+    font-size: 0.9rem;
   }
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
+  
