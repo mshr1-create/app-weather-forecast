@@ -15,7 +15,7 @@ function App() {
     }
     setError('')
     // OpenWeatherMap API を利用して天気情報を取得
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${apiKey}&units=metric&lang=ja`)
       .then((response) => {
         if (!response.ok) {
           throw new Error('天気情報の取得に失敗しました')
