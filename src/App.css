@@ -7,6 +7,8 @@ body {
   min-height: 50vh;
   align-items: center;
   justify-content: center;
+  background-color: #f8f9fa; /* 背景色を追加 */
+  font-family: Arial, sans-serif; /* フォントの統一 */
 }
 
 /* ヘッダー部分の中央揃え */
@@ -68,5 +70,39 @@ button:hover {
   color: red;
   margin-top: 10px;
   text-align: center;
+}
+
+/* 天気情報の表示をモダンなカードスタイルに調整 */
+.weather-info {
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin-top: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+/* 天気情報の各項目に下線と余白の調整 */
+.weather-info p {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 8px 0;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #eee;
+}
+
+/* 最後の項目の下線を削除 */
+.weather-info p:last-of-type {
+  border-bottom: none;
+}
+
+/* 天気アイコンのスタイル */
+.weather-info img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
 }
   
