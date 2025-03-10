@@ -105,4 +105,18 @@ button:hover {
   width: 100px;
   height: 100px;
 }
+
+.loading {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #3490dc;
+  text-align: center;
+}
+
+.loading {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #3490dc;
+  text-align: center;
+}
   
